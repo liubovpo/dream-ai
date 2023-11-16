@@ -24,7 +24,10 @@ function CreatePost() {
     setForm({...form, [e.target.name]: e.target.value})
   };
 
-  const handleSurpriseMe = () => {};
+  const handleSurpriseMe = () => {
+    const randomPrompt = getRandomPrompt(form.prompt);
+    setForm({...form, prompt: randomPrompt})
+  };
 
   return (
     <section className="max-w-7xl mx-auto">
@@ -49,7 +52,7 @@ function CreatePost() {
             type="text"
             name="prompt name"
             placeholder="an astronaut lounging in a tropical resort in space, vaporwave"
-            value={form.promprt}
+            value={form.prompt}
             handleChange={handleChange}
             isSurpriseMe
             handleSurpriseMe={handleSurpriseMe}
