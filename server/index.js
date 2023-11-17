@@ -16,7 +16,7 @@ app.use('/api/v1/post', postRoutes)
 app.use('/api/v1/ai', aiRoutes)
 
 app.get("/", async (req, res) => {
-  res.send("Hello from DALL-E!");
+  res.send("Hello from Dream ai");
 });
 
 const startServer = async () => {
