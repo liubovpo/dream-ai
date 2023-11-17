@@ -37,9 +37,10 @@ try {
         photo: photoUrl.url,
     })
 
-    res.status(201),json({success:true, data: newPost})
+    res.status(201).json({success:true, data: newPost})
 } catch (error) {
-    res.status(500).json({success:false, message: error})
+    console.error("Error creating post:", error);
+    res.status(500).json({success:false, message: "Internal server error"})
 }
 })
 

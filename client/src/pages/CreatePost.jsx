@@ -58,15 +58,23 @@ function CreatePost() {
           body: JSON.stringify(form)
         })
 
-        await response.json()
+        if (!response.ok) {
+          const errorData = await response.json(); // Fetch error details from the server
+          console.error('Server error:', errorData);
+          alert('Server error. Please try again later.');
+          return;
+        }
+  
+        await response.json();
         navigate('/');
       } catch (err) {
-        alert(err)
-      }finally{
-        setLoading(false)
+        console.error(err);
+        alert('An unexpected error occurred.');
+      } finally {
+        setLoading(false);
       }
-    } else{
-      alert('Please enter a prompt and generate an image')
+    } else {
+      alert('Please enter a prompt and generate an image');
     }
   };
 
