@@ -1,10 +1,16 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
 import "../dist/output.css";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+import { AuthProviderWrapper } from "./context/auth.context";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <AuthProviderWrapper>
+      <App />
+    </AuthProviderWrapper>
+  </React.StrictMode>
+);
