@@ -1,6 +1,7 @@
 import express from "express";
 import * as dotenv from "dotenv";
 import cors from "cors";
+import cookieParser from 'cookie-parser'
 
 import connectDB from "./mongodb/connect.js";
 import postRoutes from "./routes/postRoutes.js"
@@ -14,7 +15,8 @@ import { isAuthenticated } from"./middleware/jwt.middleware.js"
 dotenv.config();
 
 const app = express();
-configureApp(app);
+// configureApp(app);
+app.use(cookieParser())
 app.use(cors());
 app.use(express.json({ extended: false, limit: '50mb' }))
 app.use(express.urlencoded({ limit: '50mb', extended: false, parameterLimit: 50000 }))
