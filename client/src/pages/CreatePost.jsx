@@ -1,17 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { preview } from "../assets";
 import { getRandomPrompt } from "../utils";
 import FormField from "../components/FormField";
+import { AuthContext } from "../context/auth.context";
 import Loader from "../components/Loader";
 
 function CreatePost() {
   const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
   const [form, setForm] = useState({
     name: "",
     prompt: "",
     photo: "",
+    userId: user._id,
   });
   const [generatingImg, setGeneratingImg] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -50,12 +53,13 @@ function CreatePost() {
       setLoading(true);
 
       try {
+        console.log(form.userId)
         const response = await fetch(`${API_URL}/api/v1/post`, {
           method: 'POST',
           headers:{
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(form)
+          body: JSON.stringify(form),
         })
 
         if (!response.ok) {
@@ -98,10 +102,10 @@ function CreatePost() {
       <form className="mt-16 max-w-3xl" onSubmit={handleSubmit}>
         <div className="flex flex-col gap-5">
           <FormField
-            labelName="Your name"
+            labelName="Dream name"
             type="text"
             name="name"
-            placeholder="John Doe"
+            placeholder="Friday full moon dream"
             value={form.name}
             handleChange={handleChange}
           />

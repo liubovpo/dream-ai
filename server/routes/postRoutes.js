@@ -28,13 +28,14 @@ router.route('/').get(async(req,res)=>{
 // CREATE A POST
 router.route('/').post(async(req,res)=>{
 try {
-    const {name, prompt, photo} = req.body;
+    const {name, prompt, photo, userId} = req.body;
     const photoUrl = await cloudinary.uploader.upload(photo);
 
     const newPost = await Post.create({
         name,
         prompt,
         photo: photoUrl.url,
+        userId,
     })
 
     res.status(201).json({success:true, data: newPost})
@@ -43,5 +44,25 @@ try {
     res.status(500).json({success:false, message: "Internal server error"})
 }
 })
+
+// DELETE A POST
+
+router.delete('/:postId', async (req, res) => {
+    try {
+      const postId = req.params.postId;
+
+      const deletedPost = await Post.findByIdAndDelete(postId);
+  
+      if (!deletedPost) {
+        return res.status(404).json({ success: false, message: 'Post not found' });
+      }
+  
+      return res.status(200).json({ success: true, message: 'Post deleted successfully' });
+    } catch (error) {
+      console.error('Delete post error:', error);
+      return res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+  });
+  
 
 export default router;

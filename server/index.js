@@ -7,6 +7,7 @@ import connectDB from "./mongodb/connect.js";
 import postRoutes from "./routes/postRoutes.js"
 import aiRoutes from "./routes/aiRoutes.js"
 import authRoutes from "./routes/authRoutes.js"
+import userRoutes from "./routes/userRoutes.js"
 import configureApp from './config/index.js';
 import { isAuthenticated } from"./middleware/jwt.middleware.js"
 
@@ -25,6 +26,7 @@ app.use('/auth', authRoutes)
 
 app.use('/api/v1/post', postRoutes)
 app.use('/api/v1/ai', aiRoutes)
+app.use('/api/v1/users', userRoutes)
 
 app.get("/", async (req, res) => {
   res.send("Hello from Dream ai");
