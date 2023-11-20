@@ -32,7 +32,7 @@ function LogIn(props) {
       if (response.ok) {
         const responseData = await response.json();
         if (responseData && responseData.authToken) {
-        //   console.log("JWT token", responseData.authToken);
+          //   console.log("JWT token", responseData.authToken);
           storeToken(responseData.authToken);
           authenticateUser();
           navigate("/");
@@ -52,27 +52,36 @@ function LogIn(props) {
   };
 
   return (
-    <div className="LoginPage">
-      <h1>Login</h1>
+    <div className="relative flex  flex-col items-center mx-8 my-8">
+      <div className="flex-1 lg:w-1/3 w-full flex flex-col">
+        <h1 className="text-[#383ef2] text-lg  self-center font-bold">Log in</h1>
 
-      <form onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+        <form className="w-full flex flex-col gap-7 mt-14" onSubmit={handleLoginSubmit}>
+          <label className="text-black-500 font-semibold">Email:</label>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            className="border rounded-md"
+            onChange={handleEmail}
+          />
 
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
+          <label className="text-black-500 font-semibold">Password:</label>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            className="border rounded-md"
+            onChange={handlePassword}
+          />
 
-        <button type="submit">Login</button>
-      </form>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+          <button  className="font-inter w-1/3 self-center font-medium bg-[#383ef2] text-white px-4 py-2 mx-2 rounded-md" type="submit">Login</button>
+        </form>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Don't have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
+        <p className="text-gray-400 text-sm mt-4 self-center">Don't have an account yet?</p>
+        <Link  className="text-[#383ef2] underline text-sm font-semibold self-center" to={"/signup"}> Sign Up</Link>
+      </div>
     </div>
   );
 }

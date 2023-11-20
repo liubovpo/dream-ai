@@ -26,13 +26,13 @@ const App = () => {
             <>
               <Link
                 to="/create-post"
-                className="font-inter font-medium bg-[#6469ff] text-white px-4 py-2 mx-2 rounded-md"
+                className="font-inter font-medium bg-[#383ef2] text-white px-4 py-2 mx-2 rounded-md"
               >
                 Create
               </Link>
               <Link
                 onClick={logOutUser}
-                className="font-inter font-medium bg-[#383ef2] text-white px-4 py-2 mx-2 rounded-md"
+                className="font-inter font-medium bg-[#d9daff] text-[#493194] px-4 py-2 mx-2 rounded-md"
               >
                 Log out
               </Link>
