@@ -6,7 +6,7 @@ import { downloadImage } from "../utils";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-function Card({ _id, name, prompt, photo, userId, fetchPosts }) {
+function Card({ _id, name, prompt, photo, userId, userName, fetchPosts }) {
   const { user } = useContext(AuthContext);
   const currentUser = user._id;
   const canDelete = userId === currentUser;
@@ -77,7 +77,7 @@ function Card({ _id, name, prompt, photo, userId, fetchPosts }) {
         <div className="mt-5 flex justify-between items-center gap-2">
           <div className="flex items-center gap-2">
             <div className="object-cover flex justify-center items-center text-white text-xs font-bold">
-              {}
+              {userName?userName:""}
             </div>
             <p className="text-white text-sm"></p>
           </div>

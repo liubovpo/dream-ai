@@ -15,6 +15,7 @@ function CreatePost() {
     prompt: "",
     photo: "",
     userId: user._id,
+    userName: user.name,
   });
   const [generatingImg, setGeneratingImg] = useState(false);
   const [loading, setLoading] = useState(false);
