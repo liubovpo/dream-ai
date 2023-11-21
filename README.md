@@ -2,7 +2,7 @@
 <img src="./client/src/assets/logo.png" alt="logo" width="200"/> </br>
 [Click here to see the deployed app](https://ai-dream.netlify.app/)
 
-DreamScapeGenerator.com is a visionary platform where users can input dream descriptions to generate personalized, stunning dream images. Its user-friendly interface and customization options make it an engaging space to transform subconscious visions into captivating visuals, fostering a community of dream-inspired creativity.
+Dream AI is a visionary platform where users can input dream descriptions to generate personalized, stunning dream images. Its user-friendly interface and customization options make it an engaging space to transform subconscious visions into captivating visuals, fostering a community of dream-inspired creativity.
 
 # Frontend
 
@@ -56,6 +56,5 @@ The backend of Dream AI is responsible for managing data, user authentication, a
 - Node.js
 - Express.js
 - MongoDB with Mongoose
-
 
 
