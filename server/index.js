@@ -23,7 +23,7 @@ app.set('trust proxy', 1)
 
 app.use(
   cors({
-    origin: "*",
+    origin: [FRONTEND_URL],
     credentials: true,
   })
 )

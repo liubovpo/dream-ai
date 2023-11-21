@@ -26,7 +26,6 @@ function Home() {
   const [searchTimeout, setSearchTimeout] = useState(null);
 
   const fetchPosts = async () => {
-    console.log("fetching");
     setLoading(true);
 
     try {

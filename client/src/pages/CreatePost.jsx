@@ -57,7 +57,6 @@ function CreatePost() {
       setLoading(true);
 
       try {
-        console.log(form.userId)
         const response = await fetch(`${API_URL}/api/v1/post`, {
           method: 'POST',
           headers:{
