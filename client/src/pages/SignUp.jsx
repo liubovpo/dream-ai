@@ -56,8 +56,9 @@ function SignUp(props) {
           <input
             type="email"
             name="email"
+            placeholder="example@mail.com"
             value={email}
-            className="border rounded-md"
+            className="border rounded-md p-1"
             onChange={handleEmail}
           />
 
@@ -65,16 +66,18 @@ function SignUp(props) {
           <input
             type="password"
             name="password"
+            placeholder="Password"
             value={password}
-            className="border rounded-md"
+            className="border rounded-md p-1"
             onChange={handlePassword}
           />
 
           <label className="text-black-500 font-semibold">Name:</label>
           <input
-            className="border rounded-md"
+            className="border rounded-md p-1"
             type="text"
             name="name"
+            placeholder="Your name"
             value={name}
             onChange={handleName}
           />

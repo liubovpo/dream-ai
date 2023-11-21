@@ -62,7 +62,7 @@ function LogIn(props) {
             type="email"
             name="email"
             value={email}
-            className="border rounded-md"
+            className="border rounded-md p-1"
             onChange={handleEmail}
           />
 
@@ -71,7 +71,7 @@ function LogIn(props) {
             type="password"
             name="password"
             value={password}
-            className="border rounded-md"
+            className="border rounded-md p-1"
             onChange={handlePassword}
           />
 
