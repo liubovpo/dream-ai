@@ -14,9 +14,12 @@ function CreatePost() {
     name: "",
     prompt: "",
     photo: "",
-    userId: user._id,
-    userName: user.name,
+    userId: "",
+    userName: "",
   });
+  // if(user){
+  //   setForm({...form, userId: user._id, userName: user.name})
+  // }
   const [generatingImg, setGeneratingImg] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -36,7 +39,7 @@ function CreatePost() {
 
         const data = await response.json();
 
-        setForm({...form, photo: `data:image/jpeg;base64,${data.photo}`})
+        setForm({...form, photo: `data:image/jpeg;base64,${data.photo}`, userId: user._id, userName: user.name})
       } catch (error) {
         alert(error)
       }finally{
