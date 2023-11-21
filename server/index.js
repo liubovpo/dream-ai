@@ -19,13 +19,13 @@ const FRONTEND_URL = process.env.ORIGIN
 
 const app = express();
 // configureApp(app);
-app.use(cookieParser())
-app.use(cors());
 app.use(
   cors({
     origin: [FRONTEND_URL],
   })
 )
+app.use(cookieParser())
+app.use(cors());
 app.use(express.json({ extended: false, limit: '50mb' }))
 app.use(express.urlencoded({ limit: '50mb', extended: false, parameterLimit: 50000 }))
 
