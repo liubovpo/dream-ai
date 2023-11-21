@@ -15,6 +15,8 @@ import { isAuthenticated } from"./middleware/jwt.middleware.js"
 
 dotenv.config();
 
+const FRONTEND_URL = process.env.ORIGIN 
+
 const app = express();
 // configureApp(app);
 app.use(cookieParser())
