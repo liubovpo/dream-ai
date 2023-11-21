@@ -49,7 +49,7 @@ function Card({ _id, name, prompt, photo, userId, userName, fetchPosts }) {
       >
         <p className="text-white text-sm overflow-y-auto prompt">{prompt}</p>
         <div className="object-cover flex text-gray-300 text-xs">
-          Discription: {name}
+          Dream: {name}
         </div>
         <div className="mt-5 flex justify-between items-center gap-2">
           <div className="flex items-center gap-2">

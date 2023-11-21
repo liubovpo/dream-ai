@@ -9,11 +9,7 @@ import { useContext } from "react";
 import { AuthContext } from "./context/auth.context";
 
 const App = () => {
-  const {
-    isLoggedIn,
-    user,
-    logOutUser,
-  } = useContext(AuthContext);
+  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
   return (
     <BrowserRouter>
@@ -31,6 +27,7 @@ const App = () => {
                 Create
               </Link>
               <Link
+                to="/"
                 onClick={logOutUser}
                 className="font-inter font-medium transition duration-300 ease-in-out hover:bg-[#ecedfc] bg-[#d9daff] text-[#493194] px-4 py-2 mx-2 rounded-md"
               >
