@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Card from "../components/Card";
 import FormField from "../components/FormField";
 import Loader from "../components/Loader";
+import Picture from "../assets/picture.jpg";
 
 const RenderCards = ({ data, title, fetchPosts }) => {
   if (data?.length > 0) {
@@ -52,7 +53,6 @@ function Home() {
     fetchPosts();
   }, []);
 
-
   const handleSearchChange = (e) => {
     clearTimeout(searchTimeout);
     setSearchText(e.target.value);
@@ -72,8 +72,26 @@ function Home() {
 
   return (
     <section className="max-w-7xl mx-auto">
-      <div>
-        <h1 className="font-extrabold text-[#222328] text-[32px]">
+      <div className="flex flex-col">
+        <img
+          src={Picture}
+          alt="picture"
+          className="sm:w-1/5 w-1/2 mt-12 self-center rounded-full shadow-2xl shadow-indigo-700"
+        />
+        <div className="sm:w-2/3 w-full self-center text-justify my-14 mb-36 shadow-cardhover p-5 rounded-xl">
+          <p>
+            Welcome to{" "}
+            <span className="text-[#383ef2] font-medium">Dream AI</span>, where
+            the ethereal world of dreams comes to life! Step into a realm where
+            your subconscious visions are transformed into mesmerizing images.
+            Unleash your imagination, explore the infinite possibilities, and
+            create personalized dreamscapes that reflect the unique tapestry of
+            your mind. Join our vibrant community of dreamers, artists, and
+            explorers as we embark on a journey to visualize the unseen and
+            share the wonders of our inner worlds.
+          </p>
+        </div>
+        <h1 className="font-extrabold text-[#383ef2] text-[32px]">
           Community Gallery
         </h1>
         <p className="mt-2 text-[#666e75] text-[16px] max-w-[500px]">
@@ -111,7 +129,11 @@ function Home() {
                   fetchPosts={fetchPosts}
                 />
               ) : (
-                <RenderCards data={allPosts} title="No posts found" fetchPosts={fetchPosts}/>
+                <RenderCards
+                  data={allPosts}
+                  title="No posts found"
+                  fetchPosts={fetchPosts}
+                />
               )}
             </div>
           </>

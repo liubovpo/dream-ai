@@ -3,6 +3,7 @@ import { AuthContext } from "../context/auth.context";
 
 import { download } from "../assets";
 import { downloadImage } from "../utils";
+import Delete from "../assets/delete.png";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -10,12 +11,8 @@ function Card({ _id, name, prompt, photo, userId, userName, fetchPosts }) {
 
   const { user } = useContext(AuthContext);
 
-  if (!user || !user._id) {
-    return null;
-  }
-
-  let currentUser = user._id;
-  const canDelete = userId === currentUser;
+  const currentUser = user ? user._id : null;
+  const canDelete = currentUser && userId === currentUser;
 
   const handleDelete = async (postId) => {
     try {
@@ -61,18 +58,8 @@ function Card({ _id, name, prompt, photo, userId, userName, fetchPosts }) {
             </div>
             <p className="text-white text-sm"></p>
           </div>
-          <button
-            type="button"
-            onClick={() => downloadImage(_id, photo)}
-            className="outline-none bg-transparent
-          border-none"
-          >
-            <img
-              src={download}
-              alt="download"
-              className="w-6 h-6 object-contain invert"
-            />
-          </button>
+          <div>
+
           {canDelete && (
             <button
               type="button"
@@ -81,12 +68,25 @@ function Card({ _id, name, prompt, photo, userId, userName, fetchPosts }) {
           border-none"
             >
               <img
-                src={download}
+                src={Delete}
                 alt="download"
-                className="w-6 h-6 object-contain invert"
+                className="w-6 h-6 object-contain"
               />
             </button>
           )}
+          <button
+            type="button"
+            onClick={() => downloadImage(_id, photo)}
+            className="outline-none bg-transparent
+          border-none ml-6"
+          >
+            <img
+              src={download}
+              alt="download"
+              className="w-6 h-6 object-contain invert"
+            />
+          </button>
+          </div>
         </div>
       </div>
     </div>
