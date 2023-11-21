@@ -15,17 +15,19 @@ import { isAuthenticated } from"./middleware/jwt.middleware.js"
 
 dotenv.config();
 
-const FRONTEND_URL = process.env.ORIGIN 
+const FRONTEND_URL = process.env.ORIGIN || "http://localhost:5173"
 
 const app = express();
 // configureApp(app);
+app.set('trust proxy', 1)
+
 app.use(
   cors({
     origin: [FRONTEND_URL],
+    credentials: true,
   })
 )
 app.use(cookieParser())
-app.use(cors());
 app.use(express.json({ extended: false, limit: '50mb' }))
 app.use(express.urlencoded({ limit: '50mb', extended: false, parameterLimit: 50000 }))
 
