@@ -57,6 +57,7 @@ router.post("/signup", (req, res, next) => {
       // Deconstruct the newly created user object to omit the password
       // We should never expose passwords publicly
       const { email, name, _id } = createdUser;
+      console.log('Created User:', createdUser)
 
       // Create a new object that doesn't expose the password
       const user = { email, name, _id };
@@ -65,7 +66,7 @@ router.post("/signup", (req, res, next) => {
       res.status(201).json({ user: user });
     })
     .catch((err) => {
-      console.log(err);
+      console.log('User Creation Error:', err);
       res.status(500).json({ message: "Internal Server Error" });
     });
 });
